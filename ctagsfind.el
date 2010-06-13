@@ -160,17 +160,16 @@
 find next tag with last tag name. With negative prefix,
 find previous tag with last tag name."
   (interactive (ctagsfind-find-tag-interactive))
-  (let ((arg current-prefix-arg))
-    (cond
-     ((or (eq arg '-)
-          (and (numberp arg)
-               (< arg 0)))
-      (ctagsfind-find-previous))
-     (arg
-      (ctagsfind-find-next))
-     (t
-      (ctagsfind-start (ctagsfind-lookup name))
-      (ctagsfind-find-next)))))
+  (cond
+   ((or (eq next-p '-)
+        (and (numberp next-p)
+             (< next-p 0)))
+    (ctagsfind-find-previous))
+   (next-p
+    (ctagsfind-find-next))
+   (t
+    (ctagsfind-start (ctagsfind-lookup name))
+    (ctagsfind-find-next))))
 
 (defun ctagsfind-pop-tag ()
   "Pop back to last jumped tag."

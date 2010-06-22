@@ -40,7 +40,6 @@
 (defvar ctagsfind-current-tags nil)
 (defvar ctagsfind-last-tag nil)
 (defvar ctagsfind-last-tag-index nil)
-(defvar ctagsfind-last-tag-name nil)
 (defvar ctagsfind-find-tag-history nil)
 
 (defun ctagsfind-tag-name-at-point ()
@@ -119,8 +118,7 @@
 (defun ctagsfind-start (tags)
   (setq ctagsfind-current-tags tags
         ctagsfind-last-tag nil
-        ctagsfind-last-tag-index nil
-        ctagsfind-last-tag-name name))
+        ctagsfind-last-tag-index nil))
 
 (defun ctagsfind-find-next ()
   "Find next tag with last tag name."

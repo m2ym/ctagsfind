@@ -87,6 +87,8 @@
 (defun ctagsfind-jump (tag)
   (let ((path (nth 1 tag))
         (address (nth 2 tag)))
+    ;; Remove additional tag info
+    (setq address (replace-regexp-in-string ";\".*$" "" address))
     (if (condition-case nil
             (progn
               (find-file path)
